@@ -1,0 +1,61 @@
+
+/*
+typedef enum {
+ STATE_BODY,
+ STATE_HOLDERS,
+ STATE_MEMBERS,
+ STATE_SERVANTS,
+ STATE_SUBJECTS,
+ STATE_ARMY
+} stateholder_e;
+*/
+
+  //generate(&level, 1);
+  //settimer(&mg_timer, TIMER_FALSELAPSE, CURRENTTIME, 2);
+
+
+
+  if (mg_build) {
+   //int tile = mapcoordinate(x, y);
+   
+   if (PLAYERSTATE.stockpile[STOCK_PRECIOUSMETAL] >= 10 && level.tiles[index].data[DATA_HOLDER] != mg_player && level.tiles[index].desc.id != LAND_MERE) {
+	message_t message;
+
+	level.tiles[index].data[DATA_HOLDER] = mg_player;
+	PLAYERSTATE.stockpile[STOCK_PRECIOUSMETAL] -= 10;
+
+	/*if (hoststate() == HOST_LOCAL) {
+	 for (int i = 0; i < countclients(); i++) {
+	 message.type = MSG_UPDATETILE;
+	 message.queue = givequeue("unknownhost");
+
+	 message.data[0] = index;
+	 message.data[1] = level.tiles[index].desc.id;
+	 message.data[2] = level.tiles[index].data[DATA_HOLDING];
+	 message.data[3] = level.tiles[index].data[DATA_HOLDER];
+
+	 appendclientmessage(&message, i);
+
+	 readyclient(i);
+	 // updatetile();
+	 }
+	 }
+	 else if (hoststate() == HOST_CLIENT) {
+	 message.type = MSG_UPDATETILE;
+	 message.queue = givequeue("unknownhost");
+
+	 message.data[0] = index;
+	 message.data[1] = level.tiles[index].desc.id;
+	 message.data[2] = level.tiles[index].data[DATA_HOLDING];
+	 message.data[3] = level.tiles[index].data[DATA_HOLDER];
+
+	 appendmessage(&message, givequeue("host"));
+
+	 readyqueue(givequeue("host"));
+	 // updatetile();
+	 }*/
+   }
+  }
+  else {
+   mg_select = index;
+  }
